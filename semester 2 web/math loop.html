@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Numbers</title>
+</head>
+<body>
+
+<script>
+    function addNumbers() {
+        let total = 0;
+
+        while (true) {
+            let userInput = prompt("Enter a number (or -1 to stop):");
+            let number = parseFloat(userInput);
+
+            if (isNaN(number)) {
+                alert("Invalid input. Please enter a valid number.");
+                continue;
+            }
+
+            if (number === -1) {
+                alert("Adding stopped. Total: " + total);
+                break;
+            }
+
+            total += number;
+        }
+    }
+
+    addNumbers();
+</script>
+
+</body>
+</html>
