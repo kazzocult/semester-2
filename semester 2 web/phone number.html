@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+  <h2>Form Validation</h2>
+  <form id="myForm">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+    <br>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" required>
+    <br>
+    <label for="zip">Zip Code:</label>
+    <input type="text" id="zip" name="zip" required>
+    <br>
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    function validateForm() {
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const zip = document.getElementById('zip').value;
+      const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+      const zipRegex = /^\d{5}$/;
+
+      if (!email.includes('@') || !email.includes('.')) {
+        document.getElementById('result').innerHTML = '<p class="error">Invalid email format</p>';
+      } else if (!phone.match(phoneRegex)) {
+        document.getElementById('result').innerHTML = '<p class="error">Invalid phone number format</p>';
+      } else if (!zip.match(zipRegex)) {
+        document.getElementById('result').innerHTML = '<p class="error">Invalid zip code format</p>';
+      } else {
+        
+        const formattedPhone = '1+' + phone.replace(/-/g, '-');
+        document.getElementById('result').innerHTML = `<p>Email: ${email}</p><p>Phone Number: ${formattedPhone}</p><p>Zip Code: ${zip}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
