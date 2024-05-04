@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secret of the Universe</title>
+</head>
+<body>
+  <h1>Ask for the Secret of the Universe</h1>
+  <input type="text" id="question" placeholder="Type your question here">
+  <button onclick="checkQuestion()">Ask</button>
+  <div id="answer"></div>
+
+  <script>
+    function checkQuestion() {
+      
+      var question = document.getElementById("question").value.toLowerCase();
+
+     
+      if (question === "ask for the secret of the universe") {
+       
+        document.getElementById("answer").innerHTML = "The answer to the ultimate question of life, the universe, and everything is 42.";
+      } else {
+       
+        document.getElementById("answer").innerHTML = "Sorry, I can't answer that question.";
+      }
+    }
+  </script>
+</body>
+</html>
